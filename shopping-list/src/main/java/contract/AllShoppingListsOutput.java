@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllShoppingListsOutput {
-    ArrayList<ShoppingList> shoppingLists;
+    List<ShoppingList> shoppingLists;
 
     public AllShoppingListsOutput() {
 
     }
 
-    public void setShoppingLists(ArrayList<ShoppingList> shoppingLists) {
+    public void setShoppingLists(List<ShoppingList> shoppingLists) {
         this.shoppingLists = shoppingLists;
     }
 
-    public ArrayList<ShoppingList> getShoppingLists() {
+    public List<ShoppingList> getShoppingLists() {
         return this.shoppingLists;
     }
 }
