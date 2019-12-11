@@ -7,7 +7,7 @@ To make sure the Mobile app can start their implementation asap we have decided 
 Other technical decisions that were taken during the design include:
 
 * Only JSON representation will be supported
-* Swagger will be provided alongside the API for contract documentation and interactive explorability 
+* Swagger will be provided alongside the API for com.ezgroceries.shoppinglist.contract documentation and interactive explorability 
 * UUIDs will be used to uniquely identify every resource
 
 **All of the following APIs need to be implemented using Spring REST Controllers, the first one contains an implementation example.**
@@ -135,7 +135,7 @@ Response, only needs to contain the cocktailId attributes
 This will provide the main (currently still very simple) functionality of our API, 
 it will return a distinct set of ingredients derived from all the cocktails that have been added to this shopping list.
 
-Reminder that currently we only return some dummy generated data, just focus on getting the contract right.
+Reminder that currently we only return some dummy generated data, just focus on getting the com.ezgroceries.shoppinglist.contract right.
 
 Request:
 ```

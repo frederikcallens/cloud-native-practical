@@ -31,9 +31,9 @@ Add these to application.properties:
 ```
 # feign config
 feign.hystrix.enabled=true
-feign.client.config.default.connect-timeout=3000
-feign.client.config.default.read-timeout=3000
-feign.client.config.default.logger-level=basic
+feign.com.ezgroceries.shoppinglist.client.config.default.connect-timeout=3000
+feign.com.ezgroceries.shoppinglist.client.config.default.read-timeout=3000
+feign.com.ezgroceries.shoppinglist.client.config.default.logger-level=basic
 logging.level.com.ezgroceries.shoppinglist=DEBUG
 ```
 
@@ -51,7 +51,7 @@ You should see some our feign logging, example:
 In normal conditions the external API seems pretty fast, let's test our timeout by setting a ridiculously low value:
 
 ```
-feign.client.config.default.connect-timeout=1
+feign.com.ezgroceries.shoppinglist.client.config.default.connect-timeout=1
 ```
 
 Restart and do the search again. It should fail and you should see:

@@ -1,8 +1,8 @@
-package controller;
+package com.ezgroceries.shoppinglist.controller;
 
-import contract.*;
-import contract.CocktailsOutput;
-import model.ShoppingList;
+import com.ezgroceries.shoppinglist.contract.*;
+import com.ezgroceries.shoppinglist.contract.CocktailsOutput;
+import com.ezgroceries.shoppinglist.model.ShoppingList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

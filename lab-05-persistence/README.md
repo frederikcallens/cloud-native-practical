@@ -91,7 +91,7 @@ Example:
 
 ## SQL Client (Optional)
 
-To interact with our database it's convenient to use a SQL client for troubleshooting and interacting with our data. For example in Intellij we can easily set-up a datasource to connect to our local Postgres instance:
+To interact with our database it's convenient to use a SQL com.ezgroceries.shoppinglist.client for troubleshooting and interacting with our data. For example in Intellij we can easily set-up a datasource to connect to our local Postgres instance:
 
 ![](intellij-datasource.png)
 

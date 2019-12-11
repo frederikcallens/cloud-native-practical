@@ -1,9 +1,6 @@
-package contract;
+package com.ezgroceries.shoppinglist.contract;
 
-import model.CocktailResource;
-
-import java.util.List;
-import java.util.UUID;
+import com.ezgroceries.shoppinglist.model.CocktailResource;
 
 public class CocktailsInput {
     CocktailResource cocktail;
