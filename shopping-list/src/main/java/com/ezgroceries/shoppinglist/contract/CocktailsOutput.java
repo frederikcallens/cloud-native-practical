@@ -10,7 +10,7 @@ public class CocktailsOutput {
     }
 
     public void setCocktailId(UUID cocktailId) {
-        this.cocktailId = this.cocktailId;
+        this.cocktailId = cocktailId;
     }
 
     public UUID getCocktailId() {

@@ -20,6 +20,10 @@ public class ShoppingList {
     }
 
     public UUID getShoppingListId() {
-        return shoppingListId;
+        return this.shoppingListId;
     }
+
+    public String getName() { return this.name; }
+
+    public List<String> getIngredients() { return this.ingredients; }
 }

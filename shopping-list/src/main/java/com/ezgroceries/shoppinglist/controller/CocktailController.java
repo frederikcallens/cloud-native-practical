@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/cocktails", produces = "application/json")
-public class CocktailController extends CocktailDBResponse {
+public class CocktailController {
 
     @GetMapping
     public List<CocktailResource> get(@RequestParam String search) {
