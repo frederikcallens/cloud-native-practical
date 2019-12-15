@@ -1,8 +1,7 @@
-package contract;
+package com.ezgroceries.shoppinglist.contract;
 
-import model.ShoppingList;
+import com.ezgroceries.shoppinglist.model.ShoppingList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AllShoppingListsOutput {

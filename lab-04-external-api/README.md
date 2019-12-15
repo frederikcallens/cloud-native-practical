@@ -7,7 +7,7 @@ It's time to gradually replace our dummy API data with the real thing, we'll sta
 
 ## OpenFeign
 
-There are dozens of frameworks and libraries that we can use to call an external http API. In our case we're going to use the OpenFeign http client:
+There are dozens of frameworks and libraries that we can use to call an external http API. In our case we're going to use the OpenFeign http com.ezgroceries.shoppinglist.client:
  
  https://github.com/OpenFeign/feign
  
@@ -50,7 +50,7 @@ Then we add the actual OpenFeign dependency, notice this is a Spring Cloud start
 </dependency>
 ```
 
-## Feign CocktailDB client
+## Feign CocktailDB com.ezgroceries.shoppinglist.client
 
 Defining external APIs in feign is done in a declarative manner, now we'll define all the external calls we deem necessary.
 
@@ -118,7 +118,7 @@ public class CocktailDBResponse {
         ...
 ```
 
-Example feign client implementation:
+Example feign com.ezgroceries.shoppinglist.client implementation:
 
 ```
 @Component

@@ -1,7 +1,6 @@
-package model;
+package com.ezgroceries.shoppinglist.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +20,10 @@ public class ShoppingList {
     }
 
     public UUID getShoppingListId() {
-        return shoppingListId;
+        return this.shoppingListId;
     }
+
+    public String getName() { return this.name; }
+
+    public List<String> getIngredients() { return this.ingredients; }
 }

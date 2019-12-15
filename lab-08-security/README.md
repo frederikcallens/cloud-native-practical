@@ -4,7 +4,7 @@
 
 Another extra requirement has been raised for our API, it will be exclusively used from within a Mobile app, to avoid other clients being able to call our APIs we're going to introduce security measures that will try to establish this.
 
-We want to do TLS/SSL termination in our app. In addition we also want to verify client certificates to establish mutual TLS, this client certificate will be securely packaged by the Mobile app team in the Mobile distributions. Calls without the client certificate will not be able to make any API calls!
+We want to do TLS/SSL termination in our app. In addition we also want to verify com.ezgroceries.shoppinglist.client certificates to establish mutual TLS, this com.ezgroceries.shoppinglist.client certificate will be securely packaged by the Mobile app team in the Mobile distributions. Calls without the com.ezgroceries.shoppinglist.client certificate will not be able to make any API calls!
 
 We'll use Spring Boot and more specifically Tomcat's support to accomplish this.
 
@@ -35,16 +35,16 @@ You should get a warning message since we use a simple self-signed certificate t
 
 Depending on your browser you have the option to proceed, do so and verify the actuator endpoints are still working.
 
-### Enable client certification validation
+### Enable com.ezgroceries.shoppinglist.client certification validation
 
-Now we can also enable client certification, this is done by adding a trust store (a store of certificates the server trusts!).
+Now we can also enable com.ezgroceries.shoppinglist.client certification, this is done by adding a trust store (a store of certificates the server trusts!).
 
 Add these properties:
 
 ```
 server.ssl.trust-store=classpath:keystore/local-truststore.jks
 server.ssl.trust-store-password=hunter2
-server.ssl.client-auth=need
+server.ssl.com.ezgroceries.shoppinglist.client-auth=need
 ```
 
 Restart your application and again to reach the actuator endpoint:
@@ -57,19 +57,19 @@ It should fail! Depending on the browser you'll get a message indicating no trus
   Try contacting the system admin.
   ERR_BAD_SSL_CLIENT_AUTH_CERT
 
-This is of course exactly what we wanted, our browser does not provide a valid client certificate and our application correctly rejects the request.
+This is of course exactly what we wanted, our browser does not provide a valid com.ezgroceries.shoppinglist.client certificate and our application correctly rejects the request.
 
-Now we still need to verify that clients that actually present a valid client certificate can make a request. This lab contains the client cert (and it's private key) that is trusted. We can use curl to present it alongside a request:
+Now we still need to verify that clients that actually present a valid com.ezgroceries.shoppinglist.client certificate can make a request. This lab contains the com.ezgroceries.shoppinglist.client cert (and it's private key) that is trusted. We can use curl to present it alongside a request:
 
 ```
-curl -v --insecure --key lab-08-security/local-client.pem --cert lab-08-security/local-client.pem https://localhost:8443/actuator/health
+curl -v --insecure --key lab-08-security/local-com.ezgroceries.shoppinglist.client.pem --cert lab-08-security/local-com.ezgroceries.shoppinglist.client.pem https://localhost:8443/actuator/health
 ``` 
 
 This should result in a http 200 successful request! We have now secured our app. 
 
 ### Add http connector
 
-For convenience during further development we're going to re-enable simple and plain http, this way we will not have to provide the client cert during local development. This is also important for our OpenShift deployment, the readiness and liveness probes depend on the actuator endpoint!  
+For convenience during further development we're going to re-enable simple and plain http, this way we will not have to provide the com.ezgroceries.shoppinglist.client cert during local development. This is also important for our OpenShift deployment, the readiness and liveness probes depend on the actuator endpoint!  
 
 This can be done by registering an extra http connector:
 

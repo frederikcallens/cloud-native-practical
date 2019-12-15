@@ -1,8 +1,9 @@
-package controller;
+package com.ezgroceries.shoppinglist.controller;
 
-import contract.*;
-import contract.CocktailsOutput;
-import model.ShoppingList;
+import com.ezgroceries.shoppinglist.contract.*;
+import com.ezgroceries.shoppinglist.contract.CocktailsOutput;
+import com.ezgroceries.shoppinglist.model.CocktailResource;
+import com.ezgroceries.shoppinglist.model.ShoppingList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,13 +27,14 @@ public class ShoppingListController {
     }
 
     @PostMapping(value = "/{id}/cocktails")
-    public ResponseEntity addCocktail(@PathVariable("id") UUID shoppingListid, @RequestBody CocktailsInput input) {
-        List<String> ingredients = input.getCocktail().getIngredients();
+    public ResponseEntity addCocktail(@PathVariable("id") UUID shoppingListid, @RequestBody CocktailResource input) {
+        List<String> ingredients = input.getIngredients();
         ShoppingList shoppingList = getDummyResources();
         shoppingList.addIngredients(ingredients);
 
         CocktailsOutput output = new CocktailsOutput();
-        output.setCocktailId(input.getCocktail().getCocktailId());
+        UUID id = input.getCocktailId();
+        output.setCocktailId(id);
         return new ResponseEntity(output, HttpStatus.CREATED);
     }
 
