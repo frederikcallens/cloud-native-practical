@@ -1,4 +1,4 @@
-package contract;
+package com.ezgroceries.shoppinglist.contract;
 
 import java.util.UUID;
 

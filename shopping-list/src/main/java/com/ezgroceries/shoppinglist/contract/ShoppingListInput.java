@@ -1,6 +1,4 @@
-package contract;
-
-import java.util.UUID;
+package com.ezgroceries.shoppinglist.contract;
 
 public class ShoppingListInput {
     String name;

@@ -1,6 +1,5 @@
-package contract;
+package com.ezgroceries.shoppinglist.contract;
 
-import java.util.List;
 import java.util.UUID;
 
 public class CocktailsOutput {
@@ -11,7 +10,7 @@ public class CocktailsOutput {
     }
 
     public void setCocktailId(UUID cocktailId) {
-        this.cocktailId = this.cocktailId;
+        this.cocktailId = cocktailId;
     }
 
     public UUID getCocktailId() {
