@@ -1,7 +1,9 @@
 package com.ezgroceries.shoppinglist.controller;
 
+import com.ezgroceries.shoppinglist.client.CocktailDBClient;
 import com.ezgroceries.shoppinglist.contract.CocktailDBResponse;
 import com.ezgroceries.shoppinglist.model.CocktailResource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,14 +12,26 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/cocktails", produces = "application/json")
 public class CocktailController {
 
+    @Autowired
+    private CocktailDBClient cocktailDBClient;
+
     @GetMapping
     public List<CocktailResource> get(@RequestParam String search) {
-        return getDummyResources();
+        CocktailDBResponse cocktailDBResponse = cocktailDBClient.searchCocktails(search);
+        return cocktailDBResponse.getDrinks().stream().map(drinkResource -> new CocktailResource(
+                UUID.randomUUID(),  //fromString(drinkResource.idDrink),
+                drinkResource.strDrink,
+                drinkResource.strGlass,
+                drinkResource.strInstructions,
+                drinkResource.strDrinkThumb,
+                drinkResource.ingredients()
+        )).collect(Collectors.toList());
     }
 
     public List<CocktailResource> getDummyResources() {

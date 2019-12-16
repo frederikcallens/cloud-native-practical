@@ -1,5 +1,6 @@
 package com.ezgroceries.shoppinglist.contract;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CocktailDBResponse {
@@ -15,17 +16,29 @@ public class CocktailDBResponse {
     }
 
     public static class DrinkResource {
-        private String idDrink;
-        private String strDrink;
-        private String strGlass;
-        private String strInstructions;
-        private String strDrinkThumb;
-        private String strIngredient1;
-        private String strIngredient2;
-        private String strIngredient3;
-        private String strIngredient4;
-        private String strIngredient5;
-        private String strIngredient6;
-        private String strIngredient7;
+        public String idDrink;
+        public String strDrink;
+        public String strGlass;
+        public String strInstructions;
+        public String strDrinkThumb;
+        public String strIngredient1;
+        public String strIngredient2;
+        public String strIngredient3;
+        public String strIngredient4;
+        public String strIngredient5;
+        public String strIngredient6;
+        public String strIngredient7;
+
+        public List<String> ingredients() {
+            List<String> ingredients = new ArrayList<String>();
+            ingredients.add(strIngredient1);
+            ingredients.add(strIngredient2);
+            ingredients.add(strIngredient3);
+            ingredients.add(strIngredient4);
+            ingredients.add(strIngredient5);
+            ingredients.add(strIngredient6);
+            ingredients.add(strIngredient7);
+            return ingredients;
+        }
     }
 }
