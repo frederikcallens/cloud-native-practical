@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.contract;
+package com.ezgroceries.shoppinglist.controllers;
 
 public class ShoppingListInput {
     String name;

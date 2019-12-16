@@ -1,9 +1,7 @@
-package com.ezgroceries.shoppinglist.controller;
+package com.ezgroceries.shoppinglist.controllers;
 
-import com.ezgroceries.shoppinglist.contract.*;
-import com.ezgroceries.shoppinglist.contract.CocktailsOutput;
 import com.ezgroceries.shoppinglist.model.CocktailResource;
-import com.ezgroceries.shoppinglist.model.ShoppingList;
+import com.ezgroceries.shoppinglist.model.ShoppingListResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,18 +17,18 @@ public class ShoppingListController {
 
     @PostMapping
     public ResponseEntity addShoppingList(@RequestBody ShoppingListInput input) {
-        ShoppingList shoppingList = new ShoppingList(input.getName());
+        ShoppingListResource shoppingListResource = new ShoppingListResource(input.getName());
         ShoppingListOutput output = new ShoppingListOutput();
         output.setName(input.getName());
-        output.setShoppingListId(shoppingList.getShoppingListId());
+        output.setShoppingListId(shoppingListResource.getShoppingListId());
         return new ResponseEntity(output, HttpStatus.CREATED);
     }
 
     @PostMapping(value = "/{id}/cocktails")
     public ResponseEntity addCocktail(@PathVariable("id") UUID shoppingListid, @RequestBody CocktailResource input) {
         List<String> ingredients = input.getIngredients();
-        ShoppingList shoppingList = getDummyResources();
-        shoppingList.addIngredients(ingredients);
+        ShoppingListResource shoppingListResource = getDummyResources();
+        shoppingListResource.addIngredients(ingredients);
 
         CocktailsOutput output = new CocktailsOutput();
         UUID id = input.getCocktailId();
@@ -40,23 +38,23 @@ public class ShoppingListController {
 
     @GetMapping(value = "/{shoppingListId}")
     public ResponseEntity getShoppingList(@PathVariable("shoppingListId") UUID shoppingListId) {
-        ShoppingList output = getDummyResources();
+        ShoppingListResource output = getDummyResources();
         return new ResponseEntity(output, HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity getAllShoppingLists() {
         AllShoppingListsOutput output = new AllShoppingListsOutput();
-        ArrayList<ShoppingList> list = new ArrayList<ShoppingList>();
+        ArrayList<ShoppingListResource> list = new ArrayList<ShoppingListResource>();
         list.add(getDummyResources());
-        output.setShoppingLists(list);
+        output.setShoppingListResources(list);
         return new ResponseEntity(output, HttpStatus.OK);
     }
 
-    public ShoppingList getDummyResources() {
-        ShoppingList shoppingList = new ShoppingList("Stephanie's birthday");
-        shoppingList.addIngredients(Arrays.asList("Tequila", "Triple sec", "Lime juice", "Salt", "Blue Curacao"));
+    public ShoppingListResource getDummyResources() {
+        ShoppingListResource shoppingListResource = new ShoppingListResource("Stephanie's birthday");
+        shoppingListResource.addIngredients(Arrays.asList("Tequila", "Triple sec", "Lime juice", "Salt", "Blue Curacao"));
 
-        return shoppingList;
+        return shoppingListResource;
     }
 }

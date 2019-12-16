@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.contract;
+package com.ezgroceries.shoppinglist.services.external;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +39,9 @@ public class CocktailDBResponse {
             ingredients.add(strIngredient6);
             ingredients.add(strIngredient7);
             return ingredients;
+        }
+
+        public static <R> R getIdDrink(DrinkResource drinkResource) {
         }
     }
 }
