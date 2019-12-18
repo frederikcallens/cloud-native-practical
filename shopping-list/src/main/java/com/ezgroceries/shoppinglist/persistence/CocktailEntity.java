@@ -15,22 +15,33 @@ public class CocktailEntity {
     @Column(name="id")
     private UUID cocktailId;
 
+    @Column(name="id_drink")
+    private String idDrink;
+
     @Column(name="name")
     private String name;
-
-    @Column(name="glass")
-    private String glass;
-
-    @Column(name="instructions")
-    private String instructions;
-
-    @Column(name="image")
-    private String image;
 
     @Convert(converter = StringSetConverter.class)
     @Column(name="ingredients")
     private Set<String> ingredients;
 
-    public void setId(UUID randomUUID) {
+    public void setId(UUID id) {
+        this.cocktailId = id;
+    }
+
+    public void setIdDrink(String idDrink) {
+        this.idDrink = idDrink;
+    }
+
+    public String getIdDrink() {
+        return this.idDrink;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UUID getId() {
+        return cocktailId;
     }
 }

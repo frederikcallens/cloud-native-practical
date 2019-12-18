@@ -33,7 +33,7 @@ Create a free private git account and fork this repository to start implementing
 * [02 - REST API](lab-02-rest-api)
 * [03 - Docker](lab-03-docker)
 * [04 - External API Integration](lab-04-external-api)
-* [05 - Persistence](lab-05-persistence)
+* [05 - Persistence](lab-04-external-api/lab-05-persistence)
 * [06 - JPA](lab-06-jpa)
 * [07 - OpenShift](lab-07-openshift)
 * [08 - Security](lab-08-security)

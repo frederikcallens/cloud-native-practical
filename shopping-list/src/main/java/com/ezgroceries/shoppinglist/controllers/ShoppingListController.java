@@ -1,7 +1,7 @@
 package com.ezgroceries.shoppinglist.controllers;
 
-import com.ezgroceries.shoppinglist.model.CocktailResource;
-import com.ezgroceries.shoppinglist.model.ShoppingListResource;
+import com.ezgroceries.shoppinglist.services.ShoppingListService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +15,12 @@ import java.util.UUID;
 @RequestMapping(value = "/shopping-lists", produces = "application/json")
 public class ShoppingListController {
 
+    @Autowired
+    ShoppingListService shoppingListService;
+
     @PostMapping
     public ResponseEntity addShoppingList(@RequestBody ShoppingListInput input) {
+        return shoppingListService.create(new ShoppingListResource(input.name));
         ShoppingListResource shoppingListResource = new ShoppingListResource(input.getName());
         ShoppingListOutput output = new ShoppingListOutput();
         output.setName(input.getName());

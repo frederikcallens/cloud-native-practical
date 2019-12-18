@@ -2,14 +2,22 @@ package com.ezgroceries.shoppinglist.services;
 
 import com.ezgroceries.shoppinglist.controllers.CocktailResource;
 import com.ezgroceries.shoppinglist.persistence.CocktailEntity;
-import com.ezgroceries.shoppinglist.services.external.CocktailDBResponse;
+import com.ezgroceries.shoppinglist.persistence.CocktailRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Service
 public class CocktailService {
+
+    private final CocktailRepository cocktailRepository;
+
+    public CocktailService(CocktailRepository cocktailRepository) {
+        this.cocktailRepository = cocktailRepository;
+    }
 
     public List<CocktailResource> mergeCocktails(List<CocktailDBResponse.DrinkResource> drinks) {
         //Get all the idDrink attributes
@@ -37,6 +45,6 @@ public class CocktailService {
 
     private List<CocktailResource> mergeAndTransform(List<CocktailDBResponse.DrinkResource> drinks, Map<String, CocktailEntity> allEntityMap) {
         return drinks.stream().map(drinkResource -> new CocktailResource(allEntityMap.get(drinkResource.getIdDrink()).getId(), drinkResource.getStrDrink(), drinkResource.getStrGlass(),
-                drinkResource.getStrInstructions(), drinkResource.getStrDrinkThumb(), getIngredients(drinkResource))).collect(Collectors.toList());
+                drinkResource.getStrInstructions(), drinkResource.getStrDrinkThumb(), drinkResource.getIngredients())).collect(Collectors.toList());
     }
 }

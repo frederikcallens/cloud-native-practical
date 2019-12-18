@@ -1,7 +1,9 @@
 package com.ezgroceries.shoppinglist.persistence;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.Repository;
 
-public interface ShoppingListRepository extends JpaRepository {
+import java.util.UUID;
+
+public interface ShoppingListRepository extends Repository<ShoppingListEntity, UUID> {
 
 }

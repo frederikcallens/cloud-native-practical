@@ -1,19 +1,16 @@
 package com.ezgroceries.shoppinglist.persistence;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
+import org.springframework.data.repository.Repository;
+
+import java.util.BitSet;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
-@Repository
-public interface CocktailRepository extends JpaRepository<CocktailEntity, Long> {
-    @Override
-    List<CocktailEntity> findAllById(Iterable<Long> iterable);
-}
+public interface CocktailRepository extends Repository<CocktailEntity, UUID> {
 
-/*
-@Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
-    Product findByName(String productName);
+    public CocktailEntity save(CocktailEntity newCocktailEntity);
+
+    public Set<CocktailEntity> findByIdDrinkIn(List<String> ids);
 }
-*/

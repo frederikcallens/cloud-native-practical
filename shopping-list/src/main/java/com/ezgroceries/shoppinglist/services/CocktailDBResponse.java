@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.services.external;
+package com.ezgroceries.shoppinglist.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class CocktailDBResponse {
         public String strIngredient6;
         public String strIngredient7;
 
-        public List<String> ingredients() {
+        public List<String> getIngredients() {
             List<String> ingredients = new ArrayList<String>();
             ingredients.add(strIngredient1);
             ingredients.add(strIngredient2);
@@ -41,7 +41,24 @@ public class CocktailDBResponse {
             return ingredients;
         }
 
-        public static <R> R getIdDrink(DrinkResource drinkResource) {
+        public String getIdDrink() {
+            return this.idDrink;
+        }
+
+        public String getStrDrink() {
+            return this.strDrink;
+        }
+
+        public String getStrGlass() {
+            return this.strGlass;
+        }
+
+        public String getStrInstructions() {
+            return this.strInstructions;
+        }
+
+        public String getStrDrinkThumb() {
+            return this.strDrinkThumb;
         }
     }
 }

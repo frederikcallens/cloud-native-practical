@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.services.external;
+package com.ezgroceries.shoppinglist.services;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,5 @@
 package com.ezgroceries.shoppinglist.controllers;
 
-import com.ezgroceries.shoppinglist.model.ShoppingListResource;
-
 import java.util.List;
 
 public class AllShoppingListsOutput {

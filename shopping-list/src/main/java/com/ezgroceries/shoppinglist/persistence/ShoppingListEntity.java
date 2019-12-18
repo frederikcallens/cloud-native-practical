@@ -17,7 +17,7 @@ public class ShoppingListEntity {
 
     @Column(name="name")
     private String name;
-
+/*
     @Column(name="ingredients")
     private List<String> ingredients;
 
@@ -36,4 +36,5 @@ public class ShoppingListEntity {
     public void setName(String name) {
         this.name = name;
     }
+ */
 }

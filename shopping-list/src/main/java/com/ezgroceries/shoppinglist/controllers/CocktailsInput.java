@@ -1,7 +1,5 @@
 package com.ezgroceries.shoppinglist.controllers;
 
-import com.ezgroceries.shoppinglist.model.CocktailResource;
-
 public class CocktailsInput {
     CocktailResource cocktail;
 
