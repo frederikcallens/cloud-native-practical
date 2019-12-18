@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "shoppinglist")
+@Table(name = "shopping_list")
 public class ShoppingListEntity {
 
     @Id
@@ -17,9 +17,6 @@ public class ShoppingListEntity {
 
     @Column(name="name")
     private String name;
-/*
-    @Column(name="ingredients")
-    private List<String> ingredients;
 
     public UUID getId() {
         return id;
@@ -36,5 +33,4 @@ public class ShoppingListEntity {
     public void setName(String name) {
         this.name = name;
     }
- */
 }

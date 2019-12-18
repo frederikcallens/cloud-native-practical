@@ -29,6 +29,10 @@ public class CocktailEntity {
         this.cocktailId = id;
     }
 
+    public UUID getId() {
+        return cocktailId;
+    }
+
     public void setIdDrink(String idDrink) {
         this.idDrink = idDrink;
     }
@@ -39,9 +43,5 @@ public class CocktailEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public UUID getId() {
-        return cocktailId;
     }
 }

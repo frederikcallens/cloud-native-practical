@@ -20,7 +20,7 @@ public class ShoppingListController {
 
     @PostMapping
     public ResponseEntity addShoppingList(@RequestBody ShoppingListInput input) {
-        return shoppingListService.create(new ShoppingListResource(input.name));
+        ShoppingListResource resource = shoppingListService.create(new ShoppingListResource(input.name));
         ShoppingListResource shoppingListResource = new ShoppingListResource(input.getName());
         ShoppingListOutput output = new ShoppingListOutput();
         output.setName(input.getName());
