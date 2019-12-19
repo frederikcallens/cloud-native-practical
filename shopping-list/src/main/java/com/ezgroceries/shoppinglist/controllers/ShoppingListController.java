@@ -1,5 +1,6 @@
 package com.ezgroceries.shoppinglist.controllers;
 
+import com.ezgroceries.shoppinglist.persistence.ShoppingListEntity;
 import com.ezgroceries.shoppinglist.services.ShoppingListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,14 +21,14 @@ public class ShoppingListController {
 
     @PostMapping
     public ResponseEntity addShoppingList(@RequestBody ShoppingListInput input) {
-        ShoppingListResource resource = shoppingListService.create(new ShoppingListResource(input.name));
-        ShoppingListResource shoppingListResource = new ShoppingListResource(input.getName());
+        ShoppingListResource shoppingListResource = shoppingListService.create(input.getName());
         ShoppingListOutput output = new ShoppingListOutput();
         output.setName(input.getName());
         output.setShoppingListId(shoppingListResource.getShoppingListId());
         return new ResponseEntity(output, HttpStatus.CREATED);
     }
 
+    //TODO: everything below
     @PostMapping(value = "/{id}/cocktails")
     public ResponseEntity addCocktail(@PathVariable("id") UUID shoppingListid, @RequestBody CocktailResource input) {
         List<String> ingredients = input.getIngredients();
@@ -53,12 +54,5 @@ public class ShoppingListController {
         list.add(getDummyResources());
         output.setShoppingListResources(list);
         return new ResponseEntity(output, HttpStatus.OK);
-    }
-
-    public ShoppingListResource getDummyResources() {
-        ShoppingListResource shoppingListResource = new ShoppingListResource("Stephanie's birthday");
-        shoppingListResource.addIngredients(Arrays.asList("Tequila", "Triple sec", "Lime juice", "Salt", "Blue Curacao"));
-
-        return shoppingListResource;
     }
 }
