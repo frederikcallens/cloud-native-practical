@@ -1,15 +1,15 @@
-package com.ezgroceries.shoppinglist.model;
+package com.ezgroceries.shoppinglist.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ShoppingList {
+public class ShoppingListResource {
     UUID shoppingListId;
     String name;
     List<String> ingredients;
 
-    public ShoppingList(String name) {
+    public ShoppingListResource(String name) {
         this.shoppingListId = UUID.randomUUID();
         this.name = name;
         this.ingredients = new ArrayList<String>();
