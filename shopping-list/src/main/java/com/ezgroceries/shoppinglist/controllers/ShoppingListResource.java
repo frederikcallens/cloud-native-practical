@@ -9,14 +9,10 @@ public class ShoppingListResource {
     String name;
     List<String> ingredients;
 
-    public ShoppingListResource(String name) {
-        this.shoppingListId = UUID.randomUUID();
+    public ShoppingListResource(UUID id, String name) {
+        this.shoppingListId = id;
         this.name = name;
         this.ingredients = new ArrayList<String>();
-    }
-
-    public void addIngredients(List<String> ingredients) {
-        this.ingredients.addAll(ingredients);
     }
 
     public UUID getShoppingListId() {
@@ -24,6 +20,10 @@ public class ShoppingListResource {
     }
 
     public String getName() { return this.name; }
+
+    public void addIngredients(List<String> ingredients) {
+        this.ingredients.addAll(ingredients);
+    }
 
     public List<String> getIngredients() { return this.ingredients; }
 }
